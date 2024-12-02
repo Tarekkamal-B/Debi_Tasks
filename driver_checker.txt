@@ -18,12 +18,12 @@ case $1 in
      read vision_rate
      result=`check_eligiblity`
      echo $result
-     echo "$name:$result" >> driver_log
+     echo "$name:$age:$vision_rate:$result" >> driver_log
      ;;
    get)
      echo -n "Please enter the name of user: "
      read user_name
-     grep "$user_name" driver_log
+     grep "$user_name" driver_log | cut -d: -f1,4
      ;;
    list)
 	cat driver_log
